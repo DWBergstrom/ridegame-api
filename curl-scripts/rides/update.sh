@@ -5,10 +5,11 @@ curl --include --request PATCH "http://localhost:4741/rides/${ID}" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "ride": {
-      "ride_name": "'"${NAME}"'",
+      "name": "'"${NAME}"'",
       "distance": "'"${DIST}"'",
-      "time": "'"${TIME}"'",
-      "date": "'"${DATE}"'"
+      "photo_url": "'"${P_URL}"'",
+      "description": "'"${DESC}"'",
+      "points": "'"${POINTS}"'"
     }
   }'
 
