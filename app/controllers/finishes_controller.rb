@@ -1,4 +1,4 @@
-class FinishesController < ProtectedController
+class FinishesController < OpenReadController
   # to implement leaderboard, consider OpenRead controller, which will allow
   # unauthenticated indexing to calculate points for all users
 
@@ -6,7 +6,7 @@ class FinishesController < ProtectedController
 
   # GET /finishes
   def index
-    @finishes = current_user.finishes.all
+    @finishes = Finish.all
 
     render json: @finishes
   end
