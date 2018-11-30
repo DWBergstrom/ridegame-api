@@ -1,9 +1,9 @@
-class FinishesController < ApplicationController
+class FinishesController < ProtectedController
   before_action :set_finish, only: [:show, :update, :destroy]
 
   # GET /finishes
   def index
-    @finishes = Finish.all
+    @finishes = current_user.finishes.all
 
     render json: @finishes
   end
@@ -15,7 +15,7 @@ class FinishesController < ApplicationController
 
   # POST /finishes
   def create
-    @finish = Finish.new(finish_params)
+    @finish = current_user.finishes.build(finish_params)
 
     if @finish.save
       render json: @finish, status: :created, location: @finish
@@ -41,7 +41,7 @@ class FinishesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_finish
-      @finish = Finish.find(params[:id])
+      @finish = current_user.finishes.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
