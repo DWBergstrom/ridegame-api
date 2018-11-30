@@ -1,4 +1,7 @@
 class FinishesController < ProtectedController
+  # to implement leaderboard, consider OpenRead controller, which will allow
+  # unauthenticated indexing to calculate points for all users
+
   before_action :set_finish, only: [:show, :update, :destroy]
 
   # GET /finishes
