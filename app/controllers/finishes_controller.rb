@@ -1,6 +1,6 @@
 class FinishesController < ProtectedController
   # Disabled the Leaderboard functionality on the client due to security issue.
-  # now inheriting from ProtectedController to ensure user ownership of
+  # This controller is now inheriting from ProtectedController to ensure user ownership of
   # the resource
 
   before_action :set_finish, only: [:show, :update, :destroy]

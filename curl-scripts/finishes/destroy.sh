@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl "http://localhost:4741/finishes/${ID}" \
+curl "https://ridegame-api.herokuapp.com/finishes/${ID}" \
   --include \
   --header "Authorization: Token token=${TOKEN}" \
   --request DELETE \

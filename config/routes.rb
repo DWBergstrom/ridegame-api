@@ -2,7 +2,8 @@
 
 Rails.application.routes.draw do
   # RESTful routes
-  resources :rides, except: %i[new edit]
+  # rides only allow index and show for security
+  resources :rides, except: %i[new edit create update destroy]
   resources :finishes, except: %i[new edit]
 
   # example route
