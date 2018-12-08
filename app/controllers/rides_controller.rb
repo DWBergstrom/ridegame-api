@@ -1,4 +1,5 @@
-class RidesController < ApplicationController
+class RidesController < OpenReadController
+  # inheriting from OpenReadController to protect from outside changes
   before_action :set_ride, only: [:show, :update, :destroy]
 
   # GET /rides
@@ -13,30 +14,31 @@ class RidesController < ApplicationController
     render json: @ride
   end
 
-  # POST /rides
-  def create
-    @ride = Ride.new(ride_params)
-
-    if @ride.save
-      render json: @ride, status: :created, location: @ride
-    else
-      render json: @ride.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /rides/1
-  def update
-    if @ride.update(ride_params)
-      render json: @ride
-    else
-      render json: @ride.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /rides/1
-  def destroy
-    @ride.destroy
-  end
+  # commented below to additionally protect Rides from changes
+  # # POST /rides
+  # def create
+  #   @ride = Ride.new(ride_params)
+  #
+  #   if @ride.save
+  #     render json: @ride, status: :created, location: @ride
+  #   else
+  #     render json: @ride.errors, status: :unprocessable_entity
+  #   end
+  # end
+  #
+  # # PATCH/PUT /rides/1
+  # def update
+  #   if @ride.update(ride_params)
+  #     render json: @ride
+  #   else
+  #     render json: @ride.errors, status: :unprocessable_entity
+  #   end
+  # end
+  #
+  # # DELETE /rides/1
+  # def destroy
+  #   @ride.destroy
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

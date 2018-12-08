@@ -1,6 +1,7 @@
 class FinishesController < ProtectedController
-  # to implement leaderboard, consider OpenRead controller, which will allow
-  # unauthenticated indexing to calculate points for all users
+  # Disabled the Leaderboard functionality on the client due to security issue.
+  # now inheriting from ProtectedController to ensure user ownership of
+  # the resource
 
   before_action :set_finish, only: [:show, :update, :destroy]
 
